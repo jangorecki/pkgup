@@ -1,0 +1,10 @@
+Package: pkgup
+Version: 0.0.1
+Title: Package release
+Authors@R: c(
+  person("Jan","Gorecki", role=c("aut","cre"), email="j.gorecki@wit.edu.pl"))
+Description: Lightweight release of R packages on github.
+License: GPL-2
+URL: https://jangorecki.github.io/pkgup
+BugReports: https://github.com/jangorecki/pkgup/issues
+
