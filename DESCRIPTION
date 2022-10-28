@@ -1,6 +1,6 @@
 Package: pkgup
 Version: 0.0.1
-Title: Package release
+Title: Package Release
 Authors@R: c(
   person("Jan","Gorecki", role=c("aut","cre"), email="j.gorecki@wit.edu.pl"))
 Description: Lightweight release of R packages on github.

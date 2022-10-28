@@ -24,7 +24,7 @@ jobs:
           R CMD build .
       - name: check
         run: |
-          R CMD check --as-cran $(ls -1t pkgup_*.tar.gz | head -n 1)
+          R CMD check --as-cran --no-manual $(ls -1t pkgup_*.tar.gz | head -n 1)
       - name: manual
         if: github.ref == 'refs/heads/master'
         run: |
