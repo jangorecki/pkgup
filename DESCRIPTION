@@ -7,4 +7,5 @@ Description: Lightweight release of R packages on github.
 License: GPL-2
 URL: https://jangorecki.github.io/pkgup
 BugReports: https://github.com/jangorecki/pkgup/issues
-
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
