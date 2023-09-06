@@ -1,6 +1,6 @@
 \name{print.installcmd}
 \alias{print.installcmd}
-\title{ susy installcmd method }
+\title{ Print installcmd method }
 \description{
   Prints installation command for \code{installcmd} object.
 }
