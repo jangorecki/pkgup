@@ -1,10 +1,10 @@
 ---
-title: "How to use pkgup"
+title: "How to pkgup"
 output:
-  markdown::html_vignette
+  litedown::html_vignette
 vignette: >
   %\VignetteIndexEntry{howto pkgup}
-  %\VignetteEngine{knitr::knitr}
+  %\VignetteEngine{litedown::vignette}
   \usepackage[utf8]{inputenc}
 ---
 
@@ -30,4 +30,11 @@ Set _build and deployment_ source: _GitHub Actions_
 
 ## Push pkgup yaml to your package repo
 
-Once _pkgup_ workflow complete, your R package source tarball should be published in CRAN-like repo at `https://namespace.github.io/yourpkg`. Base R html style manual and vignettes of your package as well, at the same address.
+Once _pkgup_ workflow completes, your R package source tarball should be published in CRAN-like repo at `https://namespace.github.io/yourpkg`. Package desription, manual and vignettes will be published at the same address.
+
+## Use R package repo
+
+Then anyone can install package by pointing `repos` to your address.
+```r
+install.packages("yourpkg", repos="https://namespace.github.io/yourpkg")
+```

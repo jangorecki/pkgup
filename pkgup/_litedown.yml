@@ -1,0 +1,15 @@
+output:
+  litedown::html_format:
+    options:
+      toc:
+        depth: 4
+  litedown::latex_format:
+    meta:
+      documentclass: "book"
+
+book:
+  new_session: false
+  subdir: true
+  pattern: "[.]R?md$"
+  chapter_before: "Information before a chapter."
+  chapter_after: "This chapter was generated from `$input$`."

@@ -1,0 +1,15 @@
+---
+site:
+  rebuild: "outdated"
+  pattern: "[.]R?md$"
+---
+
+```{r, echo=FALSE}
+litedown::pkg_desc()
+```
+
+To cite the package:
+
+```{r, echo=FALSE}
+litedown::pkg_citation()
+```
