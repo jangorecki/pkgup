@@ -1,6 +1,5 @@
 ^\.github$
 ^_litedown\.yml$
-^pkgup$
-^doc$
+^.pkgup$
 ^Makefile$
 ^public$

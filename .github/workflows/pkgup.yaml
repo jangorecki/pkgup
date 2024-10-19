@@ -34,14 +34,35 @@ jobs:
       - name: build
         run: |
           echo "Revision:" $GITHUB_SHA >> ./DESCRIPTION
-          make build
+          R CMD build .
       - name: check
         run: |
-          make check
+          R CMD check --as-cran --no-manual $(ls -1t pkgup_*.tar.gz | head -n 1)
+      - name: doc
+        if: github.ref == 'refs/heads/master'
+        run: |
+          rm -rf .pkgup/doc
+          mkdir -p .pkgup/doc/vignettes
+          rsync -r --exclude 'doc' --exclude 'repo' .pkgup/* .pkgup/doc/
+          cp -r vignettes/* .pkgup/doc/vignettes/
+          R CMD INSTALL $(ls -1t pkgup_*.tar.gz | head -n 1)
+          Rscript -e 'litedown::fuse_site(".pkgup/doc")'
+          #ls -aR .pkgup/doc
+      - name: repo
+        if: github.ref == 'refs/heads/master'
+        run: |
+          rm -rf .pkgup/repo
+          mkdir -p .pkgup/repo/src/contrib
+          mv "$(ls -1t pkgup_*.tar.gz | head -n 1)" .pkgup/repo/src/contrib
+          Rscript -e 'tools::write_PACKAGES(".pkgup/repo/src/contrib", fields="Revision")'
+          #ls -aR .pkgup/repo
       - name: public
         if: github.ref == 'refs/heads/master'
         run: |
-          make public
+          mkdir -p public
+          cp -r .pkgup/repo/* public
+          rsync -ravz --include '*/' --include='*.html' --exclude='*' .pkgup/doc/ public/
+          #ls -aR public
       - name: upload
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v1
