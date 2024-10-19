@@ -13,7 +13,6 @@ vignette: >
 ```sh
 cp pkgup/.github/workflows/pkgup.yaml yourpkg/.github/workflows/pkgup.yaml
 sed -i 's|pkgup|yourpkg|g' yourpkg/.github/workflows/pkgup.yaml
-cp -r .pkgup .
 ```
 
 If needed, add OS dependencies chunk in `yourpkg/.github/workflows/pkgup.yaml`
