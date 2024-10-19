@@ -42,7 +42,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           mkdir -p .pkgup/doc/vignettes
-          echo -e "output:\n  litedown::html_format:\n    options:\n      toc:\n        depth: 4\n  litedown::latex_format:\n    meta:\n      documentclass: \"book\"\n\nbook:\n  new_session: false\n  subdir: true\n  pattern: \"[.]R?md$\"\n  chapter_before: \"Information before a chapter.\"\n  chapter_after: \"This chapter was generated from `$input$`.\"" > pkgup/doc/_litedown.yml
+          echo -e "output:\n  litedown::html_format:\n    options:\n      toc:\n        depth: 4\n  litedown::latex_format:\n    meta:\n      documentclass: \"book\"\n\nbook:\n  new_session: false\n  subdir: true\n  pattern: \"[.]R?md$\"\n  chapter_before: \"Information before a chapter.\"\n  chapter_after: \"This chapter was generated from `$input$`.\"" > .pkgup/doc/_litedown.yml
           echo -e "---\nsite:\n  rebuild: \"outdated\"\n  pattern: \"[.]R?md$\"\n---\n\n```{r, echo=FALSE}\nlitedown::pkg_desc()\n```\n\nTo cite the package:\n\n```{r, echo=FALSE}\nlitedown::pkg_citation()\n```" > .pkgup/doc/index.Rmd
           echo -e "```{r, echo=FALSE}\nlitedown::pkg_manual()\n```" > .pkgup/doc/manual.Rmd
           echo -e "```{r, echo=FALSE}\nlitedown::pkg_news(recent=0)\n```" > .pkgup/doc/news.Rmd
