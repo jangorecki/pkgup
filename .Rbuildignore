@@ -1,3 +1,6 @@
 ^\.github$
 ^_litedown\.yml$
 ^pkgup$
+^doc$
+^Makefile$
+^public$
